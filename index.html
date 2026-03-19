@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="tr"> <!-- Dil ayarını Türkçe yaptık -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Für dich ❤️</title>
+<title>Senin İçin ❤️</title>
 
 <style>
-/* ... (Dein bisheriges CSS bleibt größtenteils gleich, hier die Ergänzungen) ... */
+/* Tasarım aynı kalıyor */
 *{
     margin:0;
     padding:0;
@@ -27,7 +27,7 @@ body{
     font-size: 20px;
     animation: float 8s linear infinite;
     opacity: 0.7;
-    pointer-events: none; /* Verhindert, dass man aus Versehen auf Herzen klickt */
+    pointer-events: none;
 }
 
 @keyframes float {
@@ -64,13 +64,12 @@ section.show {
 
 .gallery img {
     width: 100%;
-    height: 120px; /* Einheitliche Höhe */
-    object-fit: cover; /* Bilder werden schön beschnitten, nicht gequetscht */
+    height: 120px;
+    object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* ... Rest deines Styles (Buttons, Popups etc.) ... */
 button {
     margin-top: 25px;
     padding: 15px 30px;
@@ -101,41 +100,66 @@ button:hover { transform: scale(1.05); background: #fff0f3; }
 
 <div class="hearts" id="hearts"></div>
 
+<!-- BÖLÜM 1 -->
 <section class="show">
-    <h1>Alles Gute zum Geburtstag ❤️</h1>
-    <p>Diese Webseite ist nur für dich, mein Schatz.</p>
+    <h1>İyi ki Doğdun Aşkım ❤️</h1>
+    <p>Bu web sitesi sadece senin için hazırlandı.</p>
     <div id="countdown" style="font-weight: bold; margin: 15px 0;"></div>
     <div id="loveCounter" style="font-size: 1rem; opacity: 0.9;"></div>
     
     <div class="gallery">
-        <!-- Achte darauf, dass diese Dateien in deinem GitHub-Ordner liegen! -->
-        <img src="foto1.jpg" alt="Wir">
-        <img src="foto2.jpg" alt="Wir">
-        <img src="foto3.jpg" alt="Wir">
-        <img src="foto4.jpg" alt="Wir">
-        <img src="foto5.jpg" alt="Wir">
-        <img src="foto6.jpg" alt="Wir">
+        <img src="foto1.jpg">
+        <img src="foto2.jpg">
+        <img src="foto3.jpg">
+        <img src="foto4.jpg">
+        <img src="foto5.jpg">
+        <img src="foto6.jpg">
     </div>
-    <button onclick="scrollNext()">Unsere Geschichte lesen ↓</button>
+    <button onclick="scrollNext()">Hikayemizi Oku ↓</button>
 </section>
 
+<!-- BÖLÜM 2 -->
 <section>
-    <h1>Unsere Geschichte 📖</h1>
-    <p>Am 25.04.2025 hat unsere Geschichte begonnen...<br>Ein Moment, der mein Leben verändert hat.</p>
+    <h1>Bizim Hikayemiz 📖</h1>
+    <p>
+        25.04.2025 tarihinde hikayemiz başladı.<br>
+        Hayatımı değiştiren o an...<br><br>
+        O günden beri sen benim için sadece birisi değil,<br>
+        huzur bulduğum tek yer oldun.<br>
+        Seninle her an çok kıymetli ❤️
+    </p>
 </section>
 
-<!-- ... (Deine restlichen Sections) ... -->
+<!-- BÖLÜM 3 -->
+<section>
+    <h1>Seni Neden Seviyorum ❤️</h1>
+    <p>
+        Gülüşünü seviyorum.<br>
+        Beni mutlu etme şeklini seviyorum.<br>
+        Ve seninle ilgili olan her şeyi seviyorum.
+    </p>
+    <button onclick="openPopup()">Aşk Mektubunu Aç 💌</button>
+</section>
 
+<!-- BÖLÜM 4 -->
+<section>
+    <h1>Sürpriz 🎁</h1>
+    <button onclick="alert('Sürprizin WhatsApp üzerinden sana gelecek ❤️')">
+        Sürprizi Gör
+    </button>
+</section>
+
+<!-- POPUP -->
 <div class="popup" id="popup">
     <div class="popup-content">
-        <h2>Für dich ❤️</h2>
-        <p>Ich liebe dich über alles! Danke für jeden Tag.</p>
-        <button onclick="closePopup()">Schließen</button>
+        <h2>Canım İçin ❤️</h2>
+        <p>Seni her şeyden çok seviyorum! İyi ki varsın ve iyi ki benimlesin.</p>
+        <button onclick="closePopup()">Kapat</button>
     </div>
 </div>
 
 <script>
-/* Scroll-Erkennung */
+/* Kaydırma Animasyonu */
 const sections = document.querySelectorAll("section");
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -149,31 +173,31 @@ function scrollNext(){
     window.scrollBy({top: window.innerHeight, behavior: "smooth"});
 }
 
-/* Countdown & Counter */
+/* Sayaçlar */
 function updateTimers() {
     const now = new Date().getTime();
     
-    // Geburtstag (20. März)
+    // Doğum Günü (20 Mart)
     const bday = new Date("2026-03-20T00:00:00").getTime();
     const diffBday = bday - now;
     if(diffBday > 0) {
         const d = Math.floor(diffBday / (1000*60*60*24));
         const h = Math.floor((diffBday % (1000*60*60*24)) / (1000*60*60));
-        document.getElementById("countdown").innerHTML = `Noch ${d} Tage und ${h} Stunden! 🎁`;
+        document.getElementById("countdown").innerHTML = `Doğum gününe son ${d} gün ve ${h} saat! 🎁`;
     } else {
-        document.getElementById("countdown").innerHTML = "HAPPY BIRTHDAY! 🎂🎉";
+        document.getElementById("countdown").innerHTML = "İYİ Kİ DOĞDUN! 🎂🎉";
     }
 
-    // Beziehung
+    // İlişki Sayacı
     const start = new Date("2025-04-25").getTime();
     const diffLove = now - start;
     const dLove = Math.floor(diffLove / (1000*60*60*24));
-    document.getElementById("loveCounter").innerHTML = `Wir sind seit ${dLove} Tagen unzertrennlich ❤️`;
+    document.getElementById("loveCounter").innerHTML = `${dLove} gündür birlikteyiz ❤️`;
 }
 setInterval(updateTimers, 1000);
 updateTimers();
 
-/* Herzen-Generator */
+/* Kalpler */
 setInterval(() => {
     const heart = document.createElement("span");
     heart.innerHTML = "❤️";
