@@ -7,7 +7,6 @@
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
     
-    /* Animierter Hintergrund mit Farbverlauf */
     body { 
         background: linear-gradient(-45deg, #ffdde1, #ffb3c1, #f8abbc, #ff99aa);
         background-size: 400% 400%;
@@ -16,46 +15,30 @@
         text-align: center; 
         min-height: 100vh; 
         padding: 20px;
-        position: relative; /* Wichtig für die Hintergrundelemente */
-        overflow-x: hidden; /* Verhindert horizontales Scrollen */
+        position: relative; 
+        overflow-x: hidden; 
     }
 
-    /* Animation für den Farbverlauf */
     @keyframes gradientAnimation {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
 
-    /* --- HINTERGRUND-ELEMENTE STYLING --- */
-
-    /* Container für die fallenden Herzen */
+    /* Hintergrundelemte */
     .hearts-container, .glitter-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* Hinter dem Inhalt */
-        pointer-events: none; /* Klicks gehen durch */
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
     }
 
-    /* Regen-Herzen Styling */
+    /* Herz-Regen */
     .heart {
-        position: absolute;
-        top: -100px;
-        background-color: rgba(255, 102, 178, 0.4); /* Hellrosa */
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        opacity: 0;
-        animation: heartRegenAnimation 8s linear infinite;
-        border-radius: 50% 50% 0 0;
+        position: absolute; top: -100px; background-color: rgba(255, 102, 178, 0.4);
+        display: inline-block; width: 15px; height: 15px; opacity: 0;
+        animation: heartRegenAnimation 8s linear infinite; border-radius: 50% 50% 0 0;
     }
     .heart::before { content: ""; position: absolute; top: 0; left: 0; width: 15px; height: 15px; background-color: rgba(255, 102, 178, 0.4); border-radius: 50%; }
     .heart::after { content: ""; position: absolute; top: 0; left: 0; width: 15px; height: 15px; background-color: rgba(255, 102, 178, 0.4); transform: rotate(45deg); border-radius: 0 50% 50% 0; }
 
-    /* Animation für den Herz-Regen */
     @keyframes heartRegenAnimation {
         0% { top: -100px; opacity: 0; transform: scale(1) rotate(0deg); }
         10% { opacity: 1; }
@@ -63,31 +46,32 @@
         100% { top: 110vh; opacity: 0; transform: scale(1.3) rotate(360deg); }
     }
 
-    /* --- NEU: Sternenstaub Glitzer Styling --- */
-    .glitter-sparkle {
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.8); /* Weiß-Gold glitzernd */
-        border-radius: 50%;
-        opacity: 0;
-        animation: glitterAnimation 4s ease-in-out infinite;
-    }
+    /* Glitzer */
+    .glitter-sparkle { position: absolute; background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; opacity: 0; animation: glitterAnimation 4s ease-in-out infinite; }
+    @keyframes glitterAnimation { 0%, 100% { opacity: 0; transform: scale(0.5); } 50% { opacity: 1; transform: scale(1.2); } }
 
-    /* Animation für das Flimmern des Glitzers */
-    @keyframes glitterAnimation {
-        0%, 100% { opacity: 0; transform: scale(0.5); }
-        50% { opacity: 1; transform: scale(1.2); }
-    }
-
-    /* Restliches Styling (unverändert) */
+    /* Container & Content */
     .container { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
     h1 { color: #d63384; font-size: 1.8rem; margin: 20px 0; }
     .heart-icon { font-size: 2rem; color: #e0004e; margin-bottom: 10px; }
-    .video-box { background: white; padding: 15px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 25px; }
-    video { width: 100%; border-radius: 15px; display: block; background: #000; }
+
+    /* DAS VIDEO KLEINER GEMACHT (70% Breite) */
+    .video-box { 
+        background: white; 
+        padding: 10px; 
+        border-radius: 20px; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        margin: 0 auto 25px auto; 
+        width: 70%; /* Kleiner gemacht */
+    }
+    video { width: 100%; border-radius: 12px; display: block; background: #000; }
+
     .info-box { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 25px; }
     .timer-text { color: #d63384; font-weight: bold; font-size: 1.2rem; }
+
     .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 25px; }
     .gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 15px; border: 3px solid white; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+
     .btn { background-color: #e0004e; color: white; border: none; padding: 15px; border-radius: 30px; cursor: pointer; font-size: 1.1em; margin: 8px 0; width: 100%; font-weight: bold; }
     #story-area, #surprise-area { display: none; background: white; padding: 25px; border-radius: 20px; margin: 15px 0; text-align: left; line-height: 1.6; border: 2px solid #f8abbc; }
     #surprise-area img { width: 100%; border-radius: 15px; }
@@ -97,27 +81,15 @@
 <body>
 
     <div class="hearts-container">
-        <div class="heart" style="left: 5%; animation-delay: 0s; width: 12px; height: 12px;"></div>
-        <div class="heart" style="left: 15%; animation-delay: 4s; width: 18px; height: 18px;"></div>
-        <div class="heart" style="left: 25%; animation-delay: 2s; width: 15px; height: 15px;"></div>
-        <div class="heart" style="left: 40%; animation-delay: 6s; width: 14px; height: 14px;"></div>
-        <div class="heart" style="left: 50%; animation-delay: 1s; width: 16px; height: 16px;"></div>
-        <div class="heart" style="left: 65%; animation-delay: 8s; width: 13px; height: 13px;"></div>
-        <div class="heart" style="left: 75%; animation-delay: 3s; width: 17px; height: 17px;"></div>
-        <div class="heart" style="left: 85%; animation-delay: 5s; width: 15px; height: 15px;"></div>
-        <div class="heart" style="left: 95%; animation-delay: 7s; width: 12px; height: 12px;"></div>
-
-        <div class="heart" style="left: 10%; animation-delay: 9s;"></div>
-        <div class="heart" style="left: 20%; animation-delay: 11s;"></div>
-        <div class="heart" style="left: 30%; animation-delay: 13s;"></div>
-        <div class="heart" style="left: 45%; animation-delay: 10s;"></div>
-        <div class="heart" style="left: 55%; animation-delay: 12s;"></div>
-        <div class="heart" style="left: 70%; animation-delay: 14s;"></div>
-        <div class="heart" style="left: 80%; animation-delay: 15s;"></div>
+        <!-- Herzen Generierung -->
+        <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 15%; animation-delay: 4s;"></div>
+        <div class="heart" style="left: 25%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 50%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 75%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 90%; animation-delay: 5s;"></div>
     </div>
-
-    <div class="glitter-container" id="glitterContainer">
-        </div>
+    <div class="glitter-container" id="glitterContainer"></div>
 
     <div class="container">
         <h1>Doğum günün kutlu olsun Aşkım</h1>
@@ -128,7 +100,7 @@
                 <source src="video.mp4" type="video/mp4">
                 Ihr Browser unterstützt das Video-Tag.
             </video>
-            <p style="margin-top: 10px; font-weight: bold; color: #d63384;">🎥 Bizim Videomuz</p>
+            <p style="margin-top: 5px; font-weight: bold; color: #d63384; font-size: 0.9rem;">🎥 Bizim Videomuz</p>
         </div>
 
         <div class="info-box">
@@ -137,19 +109,14 @@
         </div>
 
         <div class="gallery">
-            <img src="foto 01.jpeg">
-            <img src="foto 02.jpeg">
-            <img src="foto 03.jpeg">
-            <img src="foto 04.jpeg">
-            <img src="foto 05.jpeg">
-            <img src="foto 06.jpeg">
+            <img src="foto 01.jpeg"><img src="foto 02.jpeg">
+            <img src="foto 03.jpeg"><img src="foto 04.jpeg">
+            <img src="foto 05.jpeg"><img src="foto 06.jpeg">
         </div>
 
         <button class="btn" onclick="toggle('story-area')">Hikayemizi Oku ↓</button>
         <div id="story-area">
-            <p>Bizim hikayemiz aslında çok beklenmedik başladı. Sen sadece bir aylık staj için gelmiştin… ama seni ilk gördüğüm an bir şeylerin farklı olduğunu hissettim. Gerçekten ilk görüşte aşktı, tarif etmesi zor bir his.</p><br>
-            <p>O kısa sürede aramızda çok özel bir bağ oluştu. Konuşmalarımız, bakışlarımız… her şeyin ayrı bir anlamı vardı. Sonra en zor an geldi und sen tekrar yurt dışına döndün.</p><br>
-            <p>Ama mesafe hiçbir şeyi bitirmedi. Tam bir yıl boyunca yazıştık. Kilometreler olsa da, sen hep yanımdaymış gibi hissettin. Ve sonra tekrar buluştuğumuz o an… sanki hiç zaman geçmemiş gibiydi. ❤️</p>
+            <p>Bizim hikayemiz aslında çok beklenmedik başladı... ❤️</p>
         </div>
 
         <button class="btn" onclick="toggle('surprise-area')">Bir sürpriz var! 🎁</button>
@@ -163,37 +130,21 @@
     <script>
         function toggle(id) {
             var x = document.getElementById(id);
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-                x.scrollIntoView({behavior: "smooth"});
-            }
+            x.style.display = (x.style.display === "block") ? "none" : "block";
+            if(x.style.display === "block") x.scrollIntoView({behavior: "smooth"});
         }
 
-        // --- NEU: JavaScript, um Sternenstaub zu erstellen ---
         const glitterContainer = document.getElementById('glitterContainer');
-        const numberOfSparkles = 200; // Wie viele Glitzerpunkte
-
-        for (let i = 0; i < numberOfSparkles; i++) {
+        for (let i = 0; i < 150; i++) {
             const sparkle = document.createElement('div');
             sparkle.classList.add('glitter-sparkle');
-            
-            // Zufällige Position
             sparkle.style.left = Math.random() * 100 + 'vw';
             sparkle.style.top = Math.random() * 100 + 'vh';
-            
-            // Zufällige Größe (sehr klein)
             const size = Math.random() * 3 + 1 + 'px';
-            sparkle.style.width = size;
-            sparkle.style.height = size;
-            
-            // Zufällige Verzögerung, damit es flimmert
+            sparkle.style.width = size; sparkle.style.height = size;
             sparkle.style.animationDelay = Math.random() * 4 + 's';
-            
             glitterContainer.appendChild(sparkle);
         }
     </script>
-
 </body>
 </html>
