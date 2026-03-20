@@ -10,20 +10,20 @@
 
     .container { max-width: 600px; margin: 0 auto; }
     
-    h1 { color: #d63384; font-size: 2rem; margin: 20px 0; }
+    h1 { color: #d63384; font-size: 1.8rem; margin: 20px 0; }
     .heart-icon { font-size: 2rem; color: #e0004e; margin-bottom: 10px; }
 
-    /* Video Alanı */
-    .video-container { 
+    /* Video Bereich */
+    .video-box { 
         background: white; padding: 15px; border-radius: 20px; 
         box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 25px; 
     }
-    video { width: 100%; border-radius: 15px; display: block; }
+    video { width: 100%; border-radius: 15px; display: block; background: #000; }
 
     .info-box { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 25px; }
     .timer-text { color: #d63384; font-weight: bold; font-size: 1.2rem; }
 
-    /* 6 Kare Fotoğraf */
+    /* 6 QUADRATISCHE Fotos */
     .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 25px; }
     .gallery img { 
         width: 100%; 
@@ -48,12 +48,12 @@
         <h1>Doğum günün kutlu olsun Aşkım</h1>
         <div class="heart-icon">❤️</div>
 
-        <!-- VİDEO BÖLÜMÜ -->
-        <div class="video-container">
-            <video controls poster="foto 01.jpeg">
-                <!-- ÖNEMLİ: video.mp4 yazan yere GitHub'daki video dosyanın tam adını yaz -->
+        <!-- VIDEO ABSCHNITT -->
+        <div class="video-box">
+            <video controls playsinline>
+                <!-- WICHTIG: Deine Videodatei auf GitHub MUSS "video.mp4" heißen -->
                 <source src="video.mp4" type="video/mp4">
-                Tarayıcınız video etiketini desteklemiyor.
+                Ihr Browser unterstützt das Video-Tag nicht.
             </video>
             <p style="margin-top: 10px; font-weight: bold; color: #d63384;">🎥 Bizim Videomuz</p>
         </div>
@@ -63,7 +63,7 @@
             <p style="color: #555; margin-top: 5px;">328 gündür seninle her şey daha güzel ❤️</p>
         </div>
 
-        <!-- 6 Kare Fotoğraf -->
+        <!-- 6 Quadratische Fotos -->
         <div class="gallery">
             <img src="foto 01.jpeg">
             <img src="foto 02.jpeg">
@@ -82,7 +82,6 @@
 
         <button class="btn" onclick="toggle('surprise-area')">Bir sürpriz var! 🎁</button>
         <div id="surprise-area">
-            <!-- 7. Fotoğraf JPEG olarak eklendi -->
             <img src="foto 7.jpeg" alt="Sürpriz">
         </div>
 
