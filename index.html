@@ -10,7 +10,7 @@
 
     .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
     
-    /* 1. Wunsch: Überschrift oben */
+    /* Wunsch 1: Überschrift oben */
     h1 { color: #d63384; font-size: 2.5rem; margin-bottom: 10px; }
     p.subtitle { font-size: 1.1rem; color: #cc0066; margin-bottom: 30px; }
 
@@ -19,19 +19,19 @@
     .timer-text { color: #cc0066; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; }
     .since-text { color: #d63384; font-size: 1.1rem; }
 
-    /* Bildergalerie */
-    .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px auto; }
-    .gallery img { width: calc(50% - 10px); height: 180px; object-fit: cover; border-radius: 20px; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    /* Bildergalerie (Jetzt für 6 Fotos angepasst) */
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px auto; max-width: 600px; }
+    .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 20px; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
     /* Buttons */
     .btn { background-color: #e0004e; color: #fff; border: none; padding: 15px 30px; border-radius: 30px; cursor: pointer; font-size: 1.1em; margin: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: 0.3s; width: 80%; max-width: 300px; }
     .btn:hover { background-color: #bf0042; transform: scale(1.05); }
 
-    /* 2. Wunsch: Versteckte Geschichte */
+    /* Wunsch 2: Versteckte Geschichte */
     #story-area { display: none; background: white; padding: 30px; border-radius: 20px; margin: 20px auto; text-align: left; line-height: 1.8; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 2px solid #ffb3c1; animation: fadeIn 0.5s; }
     #story-area h2 { color: #d63384; margin-bottom: 15px; text-align: center; }
 
-    /* 3. Wunsch: Überraschungsbild foto 7.png */
+    /* Wunsch 3: Überraschungsbild foto 7.png */
     #surprise-area { display: none; margin-top: 20px; animation: fadeIn 0.5s; }
     #surprise-area img { max-width: 95%; border-radius: 20px; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 
@@ -56,22 +56,22 @@
             <img src="foto 02.jpeg">
             <img src="foto 03.jpeg">
             <img src="foto 04.jpeg">
+            <img src="foto 05.jpeg">
+            <img src="foto 06.jpeg">
         </div>
 
         <button class="btn" onclick="showStory()">Hikayemizi Oku ↓</button>
         <button class="btn" onclick="showSurprise()">Bir sürpriz var! 🎁</button>
 
-        <!-- Die Geschichte -->
         <div id="story-area">
             <h2>Bizim Hikayemiz</h2>
             Bizim hikayemiz aslında çok beklenmedik başladı. Sen sadece bir aylık staj için gelmiştin… ama seni ilk gördüğüm an bir şeylerin farklı olduğunu hissettim. Gerçekten ilk görüşte aşktı, tarif etmesi zor bir his.<br><br>
-            O kısa sürede aramızda çok özel bir bağ oluştu. Konuşmalarımız, bakışlarımız… her şeyin ayrı bir anlamı vardı. Sonra en zor an geldi ve sen tekrar yurt dışına döndün.<br><br>
+            O kısa sürede aramızda çok özel bir bağ oluştu. Konuşmalarımız, bakışlarımız… her şeyin ayrı bir anlamı vardı. Sonra en zor an geldi und sen tekrar yurt dışına döndün.<br><br>
             Ama mesafe hiçbir şeyi bitirmedi. Tam bir yıl boyunca yazıştık. Bazen gece geç saatlere kadar, bazen gün içinde küçük mesajlarla… ama hep birbirimizi hissettik. Kilometreler olsa da, sen hep yanımdaymış gibi hissettin.<br><br>
             Ve sonra tekrar buluştuğumuz o an… sanki hiç zaman geçmemiş gibiydi. Her şey kaldığı yerden devam etti, hatta daha da güçlüydü.<br><br>
-            Bizim tanışma sürecimiz kolay değildi ama belki de bu yüzden bu kadar özel. Çünkü biz, mesafeye rağmen vazgeçmeyen bir hikayeyiz. ❤️
+            Bizim tanışma sürecimiz kolay değildi ama belki de bu yüzden bu kadar özel. Çünkü biz, mesafeye rağmen vazgebeyen bir hikayeyiz. ❤️
         </div>
 
-        <!-- Das Überraschungsbild -->
         <div id="surprise-area">
             <img src="foto 7.png" alt="Sürpriz Resim">
         </div>
@@ -94,6 +94,7 @@
 
         // Countdown Timer
         function updateTimer() {
+            // Geburtstag auf Morgen gesetzt: 20. März 2026
             var bday = new Date("2026-03-20T00:00:00").getTime();
             var now = new Date().getTime();
             var diff = bday - now;
