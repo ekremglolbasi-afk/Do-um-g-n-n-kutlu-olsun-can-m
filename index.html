@@ -10,34 +10,36 @@
 
     .container { max-width: 600px; margin: 0 auto; }
     
-    /* Überschrift */
-    h1 { color: #d63384; font-size: 2.2rem; margin: 20px 0; }
-    .heart-icon { font-size: 2rem; color: #e0004e; margin-bottom: 20px; }
+    h1 { color: #d63384; font-size: 2rem; margin: 20px 0; }
+    .heart-icon { font-size: 2rem; color: #e0004e; margin-bottom: 10px; }
 
-    /* Info Box */
-    .info-box { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
-    .timer-text { color: #d63384; font-weight: bold; font-size: 1.2rem; text-transform: uppercase; }
-    .since-text { color: #555; font-size: 1rem; margin-top: 5px; }
+    /* Video Alanı */
+    .video-container { 
+        background: white; padding: 15px; border-radius: 20px; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 25px; 
+    }
+    video { width: 100%; border-radius: 15px; display: block; }
 
-    /* Galerie: 6 QUADRATISCHE Bilder */
-    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 30px; }
+    .info-box { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 25px; }
+    .timer-text { color: #d63384; font-weight: bold; font-size: 1.2rem; }
+
+    /* 6 Kare Fotoğraf */
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 25px; }
     .gallery img { 
         width: 100%; 
         aspect-ratio: 1 / 1; 
         object-fit: cover; 
         border-radius: 15px; 
-        border: 4px solid white; 
+        border: 3px solid white; 
         box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
     }
 
-    /* Buttons */
-    .btn { background-color: #e0004e; color: white; border: none; padding: 15px 25px; border-radius: 30px; cursor: pointer; font-size: 1.1em; margin: 10px 0; width: 100%; font-weight: bold; }
+    .btn { background-color: #e0004e; color: white; border: none; padding: 15px; border-radius: 30px; cursor: pointer; font-size: 1.1em; margin: 8px 0; width: 100%; font-weight: bold; }
 
-    /* Versteckte Bereiche */
-    #story-area, #surprise-area { display: none; background: white; padding: 25px; border-radius: 20px; margin: 20px 0; text-align: left; line-height: 1.6; border: 2px solid #f8abbc; }
+    #story-area, #surprise-area { display: none; background: white; padding: 25px; border-radius: 20px; margin: 15px 0; text-align: left; line-height: 1.6; border: 2px solid #f8abbc; }
     #surprise-area img { width: 100%; border-radius: 15px; }
 
-    .footer { margin-top: 30px; font-weight: bold; color: #d63384; font-size: 1.2rem; }
+    .footer { margin: 25px 0; font-weight: bold; color: #d63384; font-size: 1.2rem; }
 </style>
 </head>
 <body>
@@ -46,11 +48,22 @@
         <h1>Doğum günün kutlu olsun Aşkım</h1>
         <div class="heart-icon">❤️</div>
 
-        <div class="info-box">
-            <div class="timer-text">İYİ Kİ DOĞDUN AŞKIM! 🎂</div>
-            <div class="since-text">328 gündür seninle her şey daha güzel ❤️</div>
+        <!-- VİDEO BÖLÜMÜ -->
+        <div class="video-container">
+            <video controls poster="foto 01.jpeg">
+                <!-- ÖNEMLİ: video.mp4 yazan yere GitHub'daki video dosyanın tam adını yaz -->
+                <source src="video.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <p style="margin-top: 10px; font-weight: bold; color: #d63384;">🎥 Bizim Videomuz</p>
         </div>
 
+        <div class="info-box">
+            <div class="timer-text">İYİ Kİ DOĞDUN AŞKIM! 🎂</div>
+            <p style="color: #555; margin-top: 5px;">328 gündür seninle her şey daha güzel ❤️</p>
+        </div>
+
+        <!-- 6 Kare Fotoğraf -->
         <div class="gallery">
             <img src="foto 01.jpeg">
             <img src="foto 02.jpeg">
@@ -61,17 +74,16 @@
         </div>
 
         <button class="btn" onclick="toggle('story-area')">Hikayemizi Oku ↓</button>
-        
         <div id="story-area">
-            <p>Bizim hikayemiz aslında çok beklenmedik başladı. Sen sadece bir aylık staj için gelmiştin… aber seni ilk gördüğüm an bir şeylerin farklı olduğunu hissettim. Gerçekten ilk görüşte aşktı, tarif etmesi zor bir his.</p><br>
-            <p>O kısa sürede aramızda çok özel bir bağ oluştu. Konuşmalarımız, bakışlarımız… her şeyin ayrı bir anlamı vardı. Sonra en zor an geldi und sen tekrar yurt dışına döndün.</p><br>
+            <p>Bizim hikayemiz aslında çok beklenmedik başladı. Sen sadece bir aylık staj için gelmiştin… ama seni ilk gördüğüm an bir şeylerin farklı olduğunu hissettim. Gerçekten ilk görüşte aşktı, tarif etmesi zor bir his.</p><br>
+            <p>O kısa sürede aramızda çok özel bir bağ oluştu. Konuşmalarımız, bakışlarımız… her şeyin ayrı bir anlamı vardı. Sonra en zor an geldi ve sen tekrar yurt dışına döndün.</p><br>
             <p>Ama mesafe hiçbir şeyi bitirmedi. Tam bir yıl boyunca yazıştık. Kilometreler olsa da, sen hep yanımdaymış gibi hissettin. Ve sonra tekrar buluştuğumuz o an… sanki hiç zaman geçmemiş gibiydi. ❤️</p>
         </div>
 
         <button class="btn" onclick="toggle('surprise-area')">Bir sürpriz var! 🎁</button>
-
         <div id="surprise-area">
-            <img src="foto7.jpeg" alt="Sürpriz">
+            <!-- 7. Fotoğraf JPEG olarak eklendi -->
+            <img src="foto 7.jpeg" alt="Sürpriz">
         </div>
 
         <div class="footer">Seni çok seviyorum! ❤️</div>
